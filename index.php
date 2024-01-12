@@ -4,7 +4,7 @@ error_reporting(0);
 date_Default_timezone_set('Asia/Tashkent');
 
 define("API_KEY",'6324218946:AAFhA3W4NkbWhcK5k5VQapN4Q7tuLC4QVvQ');
-$admin = array("2105500573");
+$admin = array("789945598");
 $user = "AlijonovUz";
 $bot = bot('getme',['bot'])->result->username;
 $soat = date('H:i');
@@ -113,35 +113,112 @@ if($rew){
 mysqli_query($connect,"INSERT INTO user_id(`user_id`,`step`,`sana`) VALUES ('$cid','0','$sana | $soat')");
 }
 }
-
-
-if(isset($message)){
-$get = bot('GetChatMember',[
-'chat_id'=>$kalit,
-'user_id'=>$cid,
-]);
-$result = $get->result->status;
-if($result == "member" or $result == "administrator" or $result == "creator"){
-	}else{
-		bot('sendMessage',[
-		'chat_id'=>$cid,
-		'text'=>"🔒 @$kanal <b>ga obuna bo'lmasangiz botdan to'liq foydalana olmaysiz!</b>",
-		'parse_mode'=>'html',
-		'reply_markup'=>json_encode([
-			'inline_keyboard'=>[
-				[['text'=>"➕A'zo bo'lish",'url'=>$kanal1]],
-				[['text'=>"➕A'zo bo'lish",'url'=>$kanal2]],
-				[['text'=>"➕A'zo bo'lish",'url'=>$kanal3]],
-				[['text'=>"➕A'zo bo'lish",'url'=>$kanal4]],
-				[['text'=>"➕A'zo bo'lish",'url'=>$kanal5]],
-				[['text'=>"➕A'zo bo'lish",'url'=>$kanal6]],
-				[['text'=>"➕A'zo bo'lish",'url'=>$kanal7]],
-			]
-		]),
-		]);
-		return false;
-	}
+if(mb_stripos($text, "/ch1-")!==false){
+  $m1 = explode("-",$text);
+ $m2 = $m1[1];
+ file_put_contents("kanal1.txt","$m2");
+ uzfox('sendMessage',[
+'chat_id'=>$admin,
+'text'=>"1-kanal $m2 ga o'zgardi!",
+ ]);
 }
+if(mb_stripos($text, "/ch2-")!==false){
+  $m1 = explode("-",$text);
+ $m2 = $m1[1];
+ file_put_contents("kanal2.txt","$m2");
+ uzfox('sendMessage',[
+'chat_id'=>$admin,
+'text'=>"2-kanal $m2 ga o'zgardi!",
+ ]);
+}
+if(mb_stripos($text, "/ch3-")!==false){
+  $m1 = explode("-",$text);
+ $m2 = $m1[1];
+ file_put_contents("kanal3.txt","$m2");
+ uzfox('sendMessage',[
+'chat_id'=>$admin,
+'text'=>"3-kanal $m2 ga o'zgardi!",
+ ]);
+}
+if(mb_stripos($text, "/ch4-")!==false){
+  $m1 = explode("-",$text);
+ $m2 = $m1[1];
+ file_put_contents("kanal4.txt","$m2");
+ uzfox('sendMessage',[
+'chat_id'=>$admin,
+'text'=>"4-kanal $m2 ga o'zgardi!",
+ ]);
+}
+if(mb_stripos($text, "/ch5-")!==false){
+  $m1 = explode("-",$text);
+ $m2 = $m1[1];
+ file_put_contents("kanal5.txt","$m2");
+ uzfox('sendMessage',[
+'chat_id'=>$admin,
+'text'=>"5-kanal $m2 ga o'zgardi!",
+ ]);
+}
+if(mb_stripos($text, "/ch6-")!==false){
+  $m1 = explode("-",$text);
+ $m2 = $m1[1];
+ file_put_contents("kanal6.txt","$m2");
+ uzfox('sendMessage',[
+'chat_id'=>$admin,
+'text'=>"6-kanal $m2 ga o'zgardi!",
+ ]);
+}
+if(mb_stripos($text, "/ch7-")!==false){
+  $m1 = explode("-",$text);
+ $m2 = $m1[1];
+ file_put_contents("kanal7.txt","$m2");
+ uzfox('sendMessage',[
+'chat_id'=>$admin,
+'text'=>"7-kanal $m2 ga o'zgardi!",
+ ]);
+}
+if(mb_stripos($text, "/key")!==false){
+  $m1 = explode("-",$text);
+ $m2 = $m1[1];
+ file_put_contents("kalit.txt","$m2");
+ uzfox('sendMessage',[
+'chat_id'=>$admin,
+'text'=>"kalit $m2 ga o'zgardi!",
+ ]);
+}
+
+try{
+	if(isset($message)){
+	$get = bot('GetChatMember',[
+	'chat_id'=>$kalit,
+	'user_id'=>$cid,
+	]);
+	$result = $get->result->status;
+	if($result == "member" or $result == "administrator" or $result == "creator"){
+		}else{
+			bot('sendMessage',[
+			'chat_id'=>$cid,
+			'text'=>"🔒 @$kanal <b>ga obuna bo'lmasangiz botdan to'liq foydalana olmaysiz!</b>",
+			'parse_mode'=>'html',
+			'reply_markup'=>json_encode([
+				'inline_keyboard'=>[
+					[['text'=>"➕A'zo bo'lish",'url'=>$kanal1]],
+					[['text'=>"➕A'zo bo'lish",'url'=>$kanal2]],
+					[['text'=>"➕A'zo bo'lish",'url'=>$kanal3]],
+					[['text'=>"➕A'zo bo'lish",'url'=>$kanal4]],
+					[['text'=>"➕A'zo bo'lish",'url'=>$kanal5]],
+ 					[['text'=>"➕A'zo bo'lish",'url'=>$kanal6]],
+					[['text'=>"➕A'zo bo'lish",'url'=>$kanal7]],
+				]
+			]),
+			]);
+			return false;
+		}
+	}
+}catch(Exception $e){
+	echo $e->getMessage();
+}
+
+
 
 if($text == "/start"){
 	bot('sendMessage',[

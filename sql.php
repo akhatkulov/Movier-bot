@@ -1,9 +1,9 @@
 <?php
 
 define("DB_SERVER", "localhost"); 
-define("DB_USERNAME", "newtv"); 
-define("DB_PASSWORD", "newtv"); 
-define("DB_NAME", "newtv"); 
+define("DB_USERNAME", "kinobot_1"); 
+define("DB_PASSWORD", "mexroj17uz"); 
+define("DB_NAME", "kinobot_1"); 
 
 $connect = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 mysqli_set_charset($connect, "utf8mb4");
